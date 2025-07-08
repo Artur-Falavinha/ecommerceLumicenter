@@ -1,0 +1,139 @@
+/* Reset CSS */
+
+/* Estilos gerais no body */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Estilos do header */
+
+/* Estilos do carrossel de imagens */
+
+/* Estilos do grid de produtos */
+
+/* Estilos do footer */
+.main-footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 80px 0 40px;
+  }
+
+  .main-footer .container {
+    max-width: 1920px;
+    padding: 0 60px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #fff;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 16px;
+  }
+
+  .footer-section ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover {
+    color: #fff;
+  }
+
+  .footer-section p {
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .social-link.youtube:hover {
+    background-color: #ff0000;
+  }
+
+  .social-link.instagram:hover {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  }
+
+  .social-link.facebook:hover {
+    background-color: #1877f2;
+  }
+
+  .social-link.linkedin:hover {
+    background-color: #0077b5;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    color: #888;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-social a {
+    color: #888;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-social a:hover {
+    color: #fff;
+  }
+/* Fim dos estilos do footer */

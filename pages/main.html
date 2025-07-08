@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumishop - Início</title>
+</head>
+    <link rel="icon" type="image/lumi-icon" href="../assets/imgs/favicon/favicon.ico">
+    <link rel="stylesheet" href="../assets/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../assets/scripts/main.js"></script>
+<body>
+    <header class="main-header" id="header">
+        <div class="header-logo">
+            <img src="../assets/imgs/logos/logo lumicenter azul principal.png" alt="Logo da Lumicenter">
+        </div>
+        <div class="header-menu">
+            <ul>
+                <li><a href="#header">Início</a></li>
+                <li><a href="https://lumicenter.com/empresa" target="_blank" rel="noopener noreferrer">Sobre Nós</a></li>
+                <li><a href="#">Loja</a></li>
+                <li><a href="https://lumicenter.com/novidades" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="https://lumicenter.com/contato" target="_blank" rel="noopener noreferrer">Contato</a></li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <div class="header-wishlist">
+                <i class="fa-solid fa-heart"></i>
+                <a href="wishlist.html">Lista de Desejos</a>
+            </div>
+            <div class="header-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="cart.html">Carrinho</a>    
+            </div>
+            <div class="header-user">
+                <i class="fa-solid fa-user"></i>
+                <a href="login.html">Entrar</a>
+            </div>
+        </div>
+    </header>
+    <div class="image-slider-container">
+        <!-- Aqui vai o carrossel de imagens:
+            - 5 imagens com transição de 5 segundos entre cada uma.
+            - Deve ocupar o restante da página que a navbar não cobre quando abrir a página principal do ecommerce.
+            - Ser possível arrastar as imagens com o ícone de mãozinha do cursor do navegador, para que o usuário volte a imagem que ele queira. Também devem ter bolinhas centralizados na parte de baixo das imagens do carrossel que indicam qual imagem você está visualizando e que seja possível eu clicar na bolinha e troque para a imagem correspondente.
+        -->
+    </div>
+    <div class="main-container">
+        <div class="side-bar">
+            <div class="clean-filters">
+                <i class="fa-solid fa-xmark"></i>
+                <h3>Limpar Filtros</h3>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquisar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="price-filters">
+                <h3>Filtrar por preço</p>
+                <!-- Filtro por preço em si que deve ser uma linha com limite mínimo e máximo e que sejam arrastáveis dentro dessa linha e ao lado o botão para acionar o filtro com os parâmetros passados.
+                -->
+            </div>
+            <div class="segment-filters">
+                <h3>Filtrar por segmento</h3>
+                <!-- Lista vertical com cada categoria por segmento da Lumicenter. Será um filtro por segmento que deve ser uma lista de segmentos com checkboxes para selecionar os segmentos que o usuário deseja filtrar.
+                -->
+                <div class="segment-filters-list">
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-1">
+                        <label for="segment-filters-list-item-1">Supermercado</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-2">
+                        <label for="segment-filters-list-item-2">Indústria</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-3">
+                        <label for="segment-filters-list-item-3">Corporativo</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-4">
+                        <label for="segment-filters-list-item-4">Centro de distribuição</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-5">
+                        <label for="segment-filters-list-item-5">Escola</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-6">
+                        <label for="segment-filters-list-item-6">Farmácia</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-7">
+                        <label for="segment-filters-list-item-7">Hospital</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-8">
+                        <label for="segment-filters-list-item-8">Igreja</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-9">
+                        <label for="segment-filters-list-item-9">Varejo</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-10">
+                        <label for="segment-filters-list-item-10">Academia</label>
+                    </div>
+                    <div class="segment-filters-list-item">
+                        <input type="checkbox" id="segment-filters-list-item-11">
+                        <label for="segment-filters-list-item-11">Área externa</label>
+                    </div>
+                </div>
+            </div>
+            <div class="color-filters">
+                <h3>Filtrar por cor</h3>
+                <!-- Lista horizontal com cada cor (cada cor disponível para seleção deve ser um círculo com a cor respectiva dentro) que existem das luminárias da Lumicenter. -->
+                <div class="color-filters-list">
+                    <div class="color-filters-list-item">
+                        <input type="checkbox" id="color-filters-list-item-1">
+                        <label for="color-filters-list-item-1">Cor 1</label>
+                    </div>
+                    <div class="color-filters-list-item">
+                        <input type="checkbox" id="color-filters-list-item-2">
+                        <label for="color-filters-list-item-2">Cor 2</label>
+                    </div>
+                    <div class="color-filters-list-item">
+                        <input type="checkbox" id="color-filters-list-item-3">
+                        <label for="color-filters-list-item-3">Cor 3</label>
+                    </div>
+                    <div class="color-filters-list-item">
+                        <input type="checkbox" id="color-filters-list-item-4">
+                        <label for="color-filters-list-item-4">Cor 4</label>
+                    </div>
+                    <div class="color-filters-list-item">
+                        <input type="checkbox" id="color-filters-list-item-5">
+                        <label for="color-filters-list-item-5">Cor 5</label>
+                    </div>
+                </div>
+            </div>
+            <div class="top-selling-products">
+                <h3>Produtos mais vendidos</h3>
+                <!-- Lista vertical com 5 produtos (top 5 mais vendidos) que vão ter o ícone de estrela ao lado esquerdo de cada nome do produto e com o preço respectivo embaixo do nome de cada produto.
+                -->
+                <div class="top-selling-products-list">
+                    <div class="top-selling-products-list-item">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Produto 1</p>
+                        <p>R$ 100,00</p>
+                    </div>
+                    <div class="top-selling-products-list-item">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Produto 2</p>
+                        <p>R$ 100,00</p>
+                    </div>
+                    <div class="top-selling-products-list-item">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Produto 3</p>
+                        <p>R$ 100,00</p>
+                    </div>
+                    <div class="top-selling-products-list-item">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Produto 4</p>
+                        <p>R$ 100,00</p>
+                    </div>
+                    <div class="top-selling-products-list-item">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Produto 5</p>
+                        <p>R$ 100,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-products-container" id="grid-products-general">
+            <!-- Container que vai ter os produtos em si (basicamente um grid):
+                -Uma div como se fosse a navbar do grid de produtos no topo desse container principal com: - Título: X produtos encontrados de Y; Ao lado desse título deve ser outro título escrito 'Ordenar por:' e ao lado uma caixa de seleção podendo ordenar os produtos por algumas possibilidades (as possibilidades serão: Padrão, A até Z, Z até A, Em estoque)
+                -Embaixo da navbar do grid vai vir o grid em si com os produtos:
+                -O grid terá por padrão uns 24 cards totais que vão aparecer na tela direto sem filtros, conforme são aplicados os filtros aparecem quantias mais enxutas de luminárias. Cada produto com um card tendo a imagem e o nome e preço embaixo da imagem.
+            -->
+            <div class="grid-products-navbar">
+                <div class="grid-products-title">
+                    <h3>24 produtos encontrados de 24</h3>
+                </div>
+                <div class="grid-products-order">
+                    <h3>Ordenar por:</h3>
+                    <select name="grid-products-order-by" id="grid-products-order-by">
+                        <option value="default">Padrão</option>
+                        <option value="name-asc">A até Z</option>
+                        <option value="name-desc">Z até A</option>
+                        <option value="stock">Em estoque</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid-products">
+                <!-- Aqui vai o grid de produtos com 4 produtos por linha. -->
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-1.jpg" alt="Produto 1">
+                    <p>Produto 1</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-2.jpg" alt="Produto 2">
+                    <p>Produto 2</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-3.jpg" alt="Produto 3">
+                    <p>Produto 3</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-4.jpg" alt="Produto 4">
+                    <p>Produto 4</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-5.jpg" alt="Produto 5">
+                    <p>Produto 5</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-6.jpg" alt="Produto 6">
+                    <p>Produto 6</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-7.jpg" alt="Produto 7">
+                    <p>Produto 7</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-8.jpg" alt="Produto 8">
+                    <p>Produto 8</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-9.jpg" alt="Produto 9">
+                    <p>Produto 9</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-10.jpg" alt="Produto 10">
+                    <p>Produto 10</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-11.jpg" alt="Produto 11">
+                    <p>Produto 11</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-12.jpg" alt="Produto 12">
+                    <p>Produto 12</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-13.jpg" alt="Produto 13">
+                    <p>Produto 13</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-14.jpg" alt="Produto 14">
+                    <p>Produto 14</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-15.jpg" alt="Produto 15">
+                    <p>Produto 15</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-16.jpg" alt="Produto 16">
+                    <p>Produto 16</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-17.jpg" alt="Produto 17">
+                    <p>Produto 17</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-18.jpg" alt="Produto 18">
+                    <p>Produto 18</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-19.jpg" alt="Produto 19">
+                    <p>Produto 19</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-20.jpg" alt="Produto 20">
+                    <p>Produto 20</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-21.jpg" alt="Produto 21">
+                    <p>Produto 21</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-22.jpg" alt="Produto 22">
+                    <p>Produto 22</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-23.jpg" alt="Produto 23">
+                    <p>Produto 23</p>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="grid-products-item">
+                    <img src="../assets/imgs/products/product-24.jpg" alt="Produto 24">
+                    <p>Produto 24</p>
+                    <p>R$ 100,00</p>
+                </div>
+            </div>
+        </div>
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="logo1" style="width: 100px;">
+                            <img src="../assets/imgs/logos/logo lumicenter branca.png" alt="Logo da empresa" class="logo-img">
+                        </div><br>
+                        <p>Ecommerce desenvolvido pela Lumicenter Sistemas Eletrônicos de Iluminação
+                            Ltda.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Recursos</h4>
+                        <ul>
+                            <li> <a href="#header" class="link-scroll">Início</a></li>
+                            <li> <a href="https://lumicenter.com/empresa" target="_blank" rel="noopener noreferrer">Sobre nós</a></li>
+                            <li> <a href="#grid-products-general" class="link-scroll">Loja</a></li>
+                            <li> <a href="https://lumicenter.com/novidades" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <p><i class=""></i> www.lumicenter.com/contato</p>
+                        <p><i class=""></i> (41) 2103-2750</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Redes Sociais</h4>
+                        <p>Siga-nos e fique por dentro das novidades:</p>
+                        <div class="social-links">
+                            <a href="https://www.youtube.com/user/GrupoLumicenter" target="_blank" class="social-link youtube"
+                                title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.instagram.com/lumicenter.lighting/" target="_blank"
+                                class="social-link instagram" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/lumicenter" target="_blank" class="social-link facebook"
+                                title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://br.linkedin.com/company/lumicenter" target="_blank" class="social-link linkedin"
+                                title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 LUMISOFT 2.0 - Lumicenter Sistemas Eletrônicos de Iluminação Ltda. Todos os direitos
+                        reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </header>
+</body>
+</html>

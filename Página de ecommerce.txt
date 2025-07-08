@@ -1,0 +1,48 @@
+Página de ecommerce:
+Cores: #166e8c (azul principal Lumicenter), #213A48 (azul escuro Lumisoft), #999999 (cinza mais claro), #686868 (cinza mais escuro), #1a1a1a (tonalidade de preto), #FFFFFF (branco).
+
+Os HTML's devem ser construído nas sequências descritas para o código ficar bem estruturado e de fácil manutenção:
+
+main.html:
+
+Header:
+
+- Logo da Lumicenter na esquerda(em azul principal Lumicenter).
+- Centralizado uma nav com os itens: 'Início' (vai para o início da página principal), 'Sobre nós' (vai redirecionar para: https://lumicenter.com/empresa), 'Loja' (vai abrir um modal pequeno com as categorias principais por segmento da Lumicenter), 'Blog' (vai redirecionar para: https://lumicenter.com/novidades), 'Contato' (vai redirecionar para: https://lumicenter.com/contato).
+- Ícone de coração com a escrita do lado de 'Lista de Desejos' na direita da navbar que vão redirecionar para a página de Wishlist.
+- Ícone de carrinho na direita da navbar com uma bolinha que consta a quantia de produtos que se tem no carrinho.
+- Essa parte será o que mais vai estar ao canto da direita da navbar: a bolinha de ícone de perfil --> sem login ou cadastro vai aparecer embaixo do ícone as divs/botão de login e cadastro que vão redirecionar para sua aba respectiva. Se estiver logado as divs/botão vão sumir e ficar apenas o ícone que vai para a página de Meu Perfil, onde será possível alterar os dados do cadastro e afins.
+
+Carrossel de imagens:
+- 5 imagens com transição de 5 segundos entre cada uma.
+- Deve ocupar o restante da página que a navbar não cobre quando abrir a página principal do ecommerce.
+- Ser possível arrastar as imagens com o ícone de mãozinha do cursor do navegador, para que o usuário volte a imagem que ele queira. Também devem ter bolinhas centralizados na parte de baixo das imagens do carrossel que indicam qual imagem você está visualizando e que seja possível eu clicar na bolinha e troque para a imagem correspondente.
+
+Conteúdo principal:
+
+- Sidebar com a seguinte estrutura na ordem:
+--> Botão de limpar filtros.
+
+--> Título: Buscar produtos.
+--> Caixa de input com o ícone de lupa dentro dela para colocar qual produto deseja buscar.
+
+--> Título: Filtrar por preço.
+--> Filtro por preço em si que deve ser uma linha com limite mínimo e máximo e que sejam arrastáveis dentro dessa linha e ao lado o botão para acionar o filtro com os parâmetros passados.
+
+--> Título: Categorias.
+--> Lista vertical com cada categoria por segmento da Lumicenter.
+
+--> Título: Cores.
+--> Lista horizontal com cada cor (cada cor disponível para seleção deve ser um círculo com a cor respectiva dentro) que existem das luminárias da Lumicenter.
+
+--> Título: Produtos mais vendidos
+--> Lista vertical com 5 produtos (top 5 mais vendidos) que vão ter o ícone de estrela ao lado esquerdo de cada nome do produto e com o preço respectivo embaixo do nome de cada produto.
+
+- Container que vai ter os produtos em si (basicamente um grid):
+--> Uma div como se fosse a navbar do grid de produtos no topo desse container principal com: --> Título: X produtos encontrados de Y; Ao lado desse título deve ser outro título escrito 'Ordenar por:' e ao lado uma caixa de seleção podendo ordenar os produtos por algumas possibilidades (as possibilidades serão: Padrão, A até Z, Z até A, Em estoque)
+
+--> Embaixo da navbar vai vir o grid em si com os produtos: --> O grid terá por padrão uns 24 cards totais que vão aparecer na tela direto sem filtros, conforme são aplicados os filtros aparecem quantias mais enxutas de luminárias. Cada produto com um card tendo a imagem e o nome e preço embaixo da imagem.
+
+Footer:
+
+Igual ao do Lumisoft com algumas adaptações.
