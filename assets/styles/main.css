@@ -1,15 +1,438 @@
-/* Reset CSS */
-
-/* Estilos gerais no body */
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/* =====================
+   Variáveis de Cores
+   ===================== */
+:root {
+  --azul-principal: #166e8c;
+  --azul-escuro: #213A48;
+  --cinza-claro: #999999;
+  --cinza-escuro: #686868;
+  --preto: #1a1a1a;
+  --branco: #FFFFFF;
 }
 
-/* Estilos do header */
+/* =====================
+   Reset e Base
+   ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: var(--branco);
+  color: var(--preto);
+}
 
-/* Estilos do carrossel de imagens */
+/* =====================
+   Header styles
+   ===================== */
+.main-header {
+  width: 100%;
+  background: var(--branco);
+  color: var(--azul-principal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(22, 110, 140, 0.08);
+}
+.header-logo img {
+  height: 48px;
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.header-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.header-menu ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+.header-menu ul li a {
+  color: var(--azul-principal);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.header-menu ul li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: var(--azul-principal);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1), left 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.header-menu ul li a:hover::after,
+.header-menu ul li a:focus::after {
+  width: 80%;
+  left: 10%;
+}
+/* hover dos links centrais da navbar */
+.header-menu ul li a:hover,
+.header-menu ul li a:focus {
+  background: none;
+  color: var(--azul-principal);
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.header-wishlist {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--azul-principal);
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.header-wishlist a {
+  color: var(--preto);
+  text-decoration: none;
+  font-size: 1rem;
+}
+.header-wishlist i {
+  color: #1a1a1a;
+  font-size: 1.3rem;
+}
+.header-wishlist:hover {
+  color: #e74c3c;
+}
+.header-cart {
+  position: relative;
+  margin-right: 8px;
+}
+.header-cart i {
+  font-size: 1.5rem;
+  color: var(--azul-principal);
+}
+.header-cart .cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #1a1a1a;
+  color: var(--branco);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: 2px solid var(--branco);
+}
+.header-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.header-user i {
+  font-size: 1.5rem;
+  color: var(--azul-principal);
+}
+.header-user .user-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background: var(--branco);
+  color: var(--azul-principal);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(22, 110, 140, 0.15);
+  padding: 8px 0;
+  min-width: 120px;
+  z-index: 10;
+  display: none;
+}
+.header-user .user-actions a {
+  color: var(--preto);
+  text-decoration: none;
+  padding: 8px 16px;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.header-user .user-actions a:hover {
+  background: var(--azul-principal);
+  color: var(--branco);
+}
+@media (max-width: 900px) {
+  .main-header {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    gap: 12px;
+  }
+  .header-menu ul {
+    gap: 16px;
+  }
+  .header-right {
+    gap: 12px;
+  }
+}
+
+/* =====================
+   Carrossel de Imagens
+   ===================== */
+/* Carrossel ocupa o restante da tela abaixo do header */
+.image-slider-container {
+  width: 100%;
+  height: calc(100vh - 80px); /* 80px é a altura do header */
+  min-height: 240px;
+  max-height: 100vh;
+  background: var(--cinza-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+@media (min-width: 1200px) {
+  .image-slider-container {
+    height: 833px;
+    max-height: 850px;
+  }
+}
+@media (max-width: 900px) {
+  .image-slider-container {
+    height: 220px;
+    min-height: 120px;
+    margin-bottom: 16px;
+  }
+}
+.image-slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  cursor: grab;
+}
+.image-slider.dragging {
+  cursor: grabbing;
+}
+.image-slide {
+  min-width: 100%;
+  height: 100%;
+  user-select: none;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-slide img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.slider-dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+.slider-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--branco);
+  border: 2px solid var(--azul-principal);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+.slider-dot.active {
+  background: var(--azul-principal);
+  opacity: 1;
+}
+/* Setas do carrossel (opcional) */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(33,58,72,0.7);
+  color: var(--branco);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.slider-arrow:hover {
+  background: var(--azul-principal);
+}
+.slider-arrow.left {
+  left: 24px;
+}
+.slider-arrow.right {
+  right: 24px;
+}
+@media (max-width: 900px) {
+  .image-slider-container {
+    height: 320px;
+  }
+  .image-slide img {
+    height: 320px;
+  }
+}
 
 /* Estilos do grid de produtos */
+
+/* =====================
+   Grid de Produtos
+   ===================== */
+.grid-products-container {
+  flex: 1;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(33,58,72,0.08);
+  padding: 32px 32px 32px 32px;
+  margin: 32px 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.grid-products-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 24px;
+}
+.grid-products-title h3 {
+  font-size: 1.2rem;
+  color: var(--azul-escuro);
+  font-weight: 600;
+}
+.grid-products-order {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.grid-products-order h3 {
+  font-size: 1rem;
+  color: var(--cinza-escuro);
+  font-weight: 500;
+}
+.grid-products-order select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1.5px solid var(--cinza-claro);
+  background: var(--branco);
+  color: var(--azul-escuro);
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  transition: border 0.2s;
+}
+.grid-products-order select:focus {
+  border: 1.5px solid var(--azul-principal);
+}
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 24px;
+}
+.grid-products-item {
+  background: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(33,58,72,0.04);
+  padding: 18px 12px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.grid-products-item img {
+  width: 100%;
+  max-width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: transparent;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.grid-products-item:hover img {
+  transform: scale(1.12);
+}
+.grid-products-item:hover {
+  box-shadow: 0 1px 4px rgba(33,58,72,0.04);
+  transform: none;
+}
+.grid-products-item p {
+  margin: 0;
+  text-align: center;
+}
+.grid-products-item p:first-of-type {
+  font-size: 1.05rem;
+  color: var(--azul-escuro);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.grid-products-item p:last-of-type {
+  font-size: 1rem;
+  color: var(--azul-principal);
+  font-weight: 500;
+}
+@media (max-width: 1200px) {
+  .grid-products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .grid-products-container {
+    padding: 16px 0;
+    margin: 16px 0;
+  }
+  .grid-products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 8px;
+  }
+}
+@media (max-width: 600px) {
+  .grid-products {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* Estilos do footer */
 .main-footer {
@@ -63,6 +486,12 @@ body {
     font-size: 16px;
     margin-bottom: 12px;
     line-height: 1.6;
+  }
+
+  .footer-section img {
+    position: relative;
+    left: -30px;
+    top: -20px;
   }
 
   .social-links {
@@ -137,3 +566,524 @@ body {
     color: #fff;
   }
 /* Fim dos estilos do footer */
+
+/* =====================
+   Modal de Categorias Loja (ajuste colunas e título)
+   ===================== */
+/* Modal de Categorias Loja - mais para baixo e segmentos em coluna */
+.modal-categorias {
+  position: absolute;
+  top: 80px;
+  left: 900px;
+  background: var(--branco);
+  color: var(--azul-principal);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(22, 110, 140, 0.15);
+  padding: 20px 32px 24px 32px;
+  min-width: 220px;
+  z-index: 20;
+  display: flex;
+}
+.modal-categorias-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  margin-bottom: 20px;
+  text-align: left;
+}
+/* Modal do link 'Loja' alinhado conforme imagem de referência */
+.modal-categorias-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  align-items: flex-start;
+  min-width: 420px;
+}
+.modal-categorias-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.08rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  color: #111;
+  flex-direction: column;
+  gap: 16px;
+}
+.modal-categorias-list ul + ul {
+  border-left: 1px solid #e0e0e0;
+  padding-left: 40px;
+  height: 100%;
+  width: 80%;
+}
+.modal-categorias-list li {
+  padding: 6px 0;
+  margin: 0;
+  background: none;
+  color: #111;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.modal-categorias-list li:hover,
+.modal-categorias-list li:focus {
+  background: #f5f5f5;
+  color: #166e8c;
+}
+
+/* =====================
+   Badge do Carrinho
+   ===================== */
+/* (Já incluso acima, manter para referência) */
+
+/* =====================
+   User Actions (Login/Cadastro)
+   ===================== */
+.header-user .user-actions {
+  /* já estilizado acima, só garantir prioridade */
+  box-shadow: 0 4px 16px rgba(22, 110, 140, 0.15);
+}
+
+/* Mostrar modal de categorias ao passar mouse */
+.header-loja:hover .modal-categorias,
+.header-loja:focus-within .modal-categorias {
+  display: block;
+}
+
+/* Mostrar user-actions ao passar mouse no perfil */
+.header-user:hover .user-actions,
+.header-user:focus-within .user-actions {
+  display: flex;
+}
+
+/* =====================
+   Sidebar de Filtros
+   ===================== */
+.side-bar {
+  width: 320px;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(33,58,72,0.08);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 32px 0 32px 32px;
+  min-width: 260px;
+}
+
+/* =====================
+   Limpar filtros (Sidebar)
+   ===================== */
+
+.clean-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cinza-escuro);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+.clean-filters:hover {
+  color: var(--preto);
+}
+.clean-filters i {
+  font-size: 1.2rem;
+}
+
+/* =====================
+   Input de Pesquisa (Sidebar)
+   ===================== */
+/* Estilo moderno para o input de pesquisa na sidebar */
+.search-bar {
+  position: relative;
+  margin-bottom: 16px;
+}
+.search-bar input {
+  width: 100%;
+  padding: 12px 44px 12px 18px;
+  border: 2px solid var(--cinza-claro);
+  border-radius: 10px;
+  font-size: 1.08rem;
+  color: var(--preto);
+  background: #f7fafd;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(33,58,72,0.04);
+}
+.search-bar input:focus {
+  border: 2px solid var(--azul-principal);
+  box-shadow: 0 2px 12px rgba(22,110,140,0.10);
+  background: #fff;
+}
+.search-bar i {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cinza-escuro);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* =====================
+   Filtro por Preço (Faixa dupla)
+   ===================== */
+.price-slider.double-range {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.price-slider.double-range input[type=range] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 36px;
+  pointer-events: auto; /* Permite interação com ambos os sliders */
+  background: none;
+  z-index: 2;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.price-slider.double-range input[type=range]:nth-child(1) {
+  z-index: 3; /* Input do valor mínimo fica acima do máximo */
+  pointer-events: auto;
+}
+.price-slider.double-range input[type=range]:nth-child(2) {
+  z-index: 2;
+  pointer-events: auto;
+}
+/* Barra de fundo (cinza) */
+.price-slider-track {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--cinza-claro);
+  z-index: 1;
+}
+/* Barra azul dinâmica (faixa selecionada) será aplicada via JS inline */
+.price-slider-track.selected {
+  background: linear-gradient(to right, var(--cinza-claro) var(--start), var(--azul-principal) var(--start), var(--azul-principal) var(--end), var(--cinza-claro) var(--end));
+}
+/* Thumb customizado para ambos sliders */
+.price-slider.double-range input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--azul-principal);
+  border: 2px solid var(--branco);
+  box-shadow: 0 2px 8px rgba(22,110,140,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 10;
+}
+.price-slider.double-range input[type=range]:focus::-webkit-slider-thumb {
+  background: var(--azul-escuro);
+}
+.price-slider.double-range input[type=range]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--azul-principal);
+  border: 2px solid var(--branco);
+  box-shadow: 0 2px 8px rgba(22,110,140,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 10;
+}
+.price-slider.double-range input[type=range]:focus::-moz-range-thumb {
+  background: var(--azul-escuro);
+}
+.price-slider.double-range input[type=range]::-ms-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--azul-principal);
+  border: 2px solid var(--branco);
+  box-shadow: 0 2px 8px rgba(22,110,140,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 10;
+}
+.price-slider.double-range input[type=range]:focus::-ms-thumb {
+  background: var(--azul-escuro);
+}
+.price-slider.double-range input[type=range]:focus {
+  outline: none;
+}
+.price-filter-btn {
+  background: var(--azul-principal);
+  color: var(--branco);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(22,110,140,0.08);
+  margin: 12px auto 0 auto;
+  display: block;
+}
+.price-filter-btn:hover {
+  background: var(--azul-escuro);
+  box-shadow: 0 4px 16px rgba(22,110,140,0.12);
+}
+.segment-filters h3,
+.color-filters h3,
+.top-selling-products h3 {
+  font-size: 1.1rem;
+  color: var(--azul-escuro);
+  margin-bottom: 8px;
+}
+.segment-filters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.segment-filters-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: var(--cinza-escuro);
+}
+.segment-filters-list-item input[type=checkbox] {
+  accent-color: var(--azul-principal);
+}
+.color-filters-list {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.color-filters-list-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.color-filters-list-item input[type=checkbox] {
+  display: none;
+}
+.color-filters-list-item label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--cinza-claro);
+  cursor: pointer;
+  background: var(--cinza-claro);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.color-filters-list-item input[type=checkbox]:checked + label {
+  border: 2px solid var(--azul-principal);
+  box-shadow: 0 0 0 2px var(--azul-principal, #166e8c33);
+}
+/* Exemplo de cor, pode ser sobrescrito inline */
+.color-filters-list-item label[data-color] {
+  background: attr(data-color);
+}
+.top-selling-products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.top-selling-products-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: var(--azul-escuro);
+  box-shadow: 0 1px 4px rgba(33,58,72,0.04);
+}
+.top-selling-products-list-item i {
+  color: #f7b731;
+  font-size: 1.2rem;
+}
+.top-selling-products-list-item p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.top-selling-products-list-item p:last-child {
+  font-size: 0.95rem;
+  color: var(--cinza-escuro);
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .side-bar {
+    width: 100%;
+    min-width: unset;
+    margin: 16px 0;
+    padding: 16px 8px;
+  }
+}
+
+/* Remover cor de fundo e texto no hover dos segmentos do modal e dos itens do modal de perfil, manter só a linha animada */
+.modal-categorias-list li:hover,
+.modal-categorias-list li:focus {
+  background: none;
+  color: var(--azul-principal);
+}
+.header-user .user-actions a:hover,
+.header-user .user-actions a:focus {
+  background: none;
+  color: var(--azul-principal);
+}
+
+/* =====================
+   Layout principal: sidebar e grid lado a lado
+   ===================== */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: stretch;
+  gap: 0;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* =====================
+   Garantir footer no final da página
+   ===================== */
+html, body {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  flex: 1 0 auto;
+}
+.main-footer {
+  flex-shrink: 0;
+}
+
+/* Garantir que o header fique fixo no topo em qualquer rolagem */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+/* Adicionar padding-top no body para não sobrepor o conteúdo pelo header fixo */
+body {
+  padding-top: 80px;
+}
+
+.modal-categorias-titulos {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 16px;
+}
+.modal-categorias-titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  cursor: pointer;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border 0.2s, color 0.2s;
+}
+.modal-categorias-titulo.ativo,
+.modal-categorias-titulo:hover {
+  color: var(--azul-principal);
+}
+#conteudo-tipos {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  align-items: flex-start;
+  min-width: 600px;
+}
+@media (max-width: 900px) {
+  #conteudo-tipos {
+    grid-template-columns: 1fr 1fr;
+    min-width: 320px;
+  }
+}
+@media (max-width: 600px) {
+  #conteudo-tipos {
+    grid-template-columns: 1fr;
+    min-width: 0;
+  }
+}
+
+/* =====================
+   Filtro por Preço Customizado (Slider Duplo)
+   ===================== */
+.custom-range-slider {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+}
+.custom-range-track {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--cinza-claro);
+  z-index: 1;
+  transition: background 0.2s;
+}
+.custom-range-thumb {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  background: var(--azul-principal);
+  border: 2px solid var(--branco);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(22,110,140,0.10);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s, border 0.2s;
+}
+.custom-range-thumb:active,
+.custom-range-thumb:focus {
+  background: var(--azul-escuro);
+  border: 2px solid var(--azul-principal);
+}
+.custom-range-thumb.min {
+  /* Será posicionado via JS */
+}
+.custom-range-thumb.max {
+  /* Será posicionado via JS */
+}
+/* Faixa azul entre os thumbs será aplicada via JS inline no .custom-range-track */
