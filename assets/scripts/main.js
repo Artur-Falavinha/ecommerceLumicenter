@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             badge.style.display = qtd > 0 ? 'flex' : 'none';
         }
     }
-    // Exemplo: atualizarBadgeCarrinho(3); // Chame isso ao adicionar/remover produtos
+    // Exemplo: atualizarBadgeCarrinho(3); // Chamar isso ao adicionar/remover produtos
 
     // =====================
     // User Actions (Login/Cadastro dinâmico) - delay para sumir
@@ -159,42 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Setas
         if (leftArrow) leftArrow.onclick = () => { prevSlide(); startAutoSlide(); };
         if (rightArrow) rightArrow.onclick = () => { nextSlide(); startAutoSlide(); };
-        // Drag com mouse/touch
-        slider.addEventListener('mousedown', startDrag);
-        slider.addEventListener('touchstart', startDrag, {passive: true});
-        window.addEventListener('mouseup', endDrag);
-        window.addEventListener('touchend', endDrag);
-        window.addEventListener('mousemove', dragMove);
-        window.addEventListener('touchmove', dragMove, {passive: false});
-    }
-    function startDrag(e) {
-        isDragging = true;
-        slider.classList.add('dragging');
-        startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-        prevTranslate = -currentSlide * slider.offsetWidth;
-        stopAutoSlide();
-    }
-    function dragMove(e) {
-        if (!isDragging) return;
-        const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-        const dx = x - startX;
-        currentTranslate = prevTranslate + dx;
-        slider.style.transform = `translateX(${currentTranslate}px)`;
-        e.preventDefault && e.preventDefault();
-    }
-    function endDrag(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        slider.classList.remove('dragging');
-        const x = e.type && e.type.includes('touch') && e.changedTouches ? e.changedTouches[0].clientX : (e ? e.clientX : 0);
-        const dx = x - startX;
-        if (Math.abs(dx) > 50) {
-            if (dx < 0) nextSlide();
-            else prevSlide();
-        } else {
-            goToSlide(currentSlide);
-        }
-        startAutoSlide();
     }
 
     // =====================
@@ -315,6 +279,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================
+    // Modal Sobre (navbar) - igual ao modal da loja
+    // =====================
+    const sobreLink = document.getElementById('sobre-link');
+    const modalSobre = document.getElementById('modal-sobre');
+    let modalSobreTimeout;
+    if (sobreLink && modalSobre) {
+        sobreLink.addEventListener('mouseenter', () => {
+            clearTimeout(modalSobreTimeout);
+            modalSobre.style.display = 'flex';
+        });
+        sobreLink.addEventListener('mouseleave', () => {
+            modalSobreTimeout = setTimeout(() => { modalSobre.style.display = 'none'; }, 300);
+        });
+        modalSobre.addEventListener('mouseenter', () => {
+            clearTimeout(modalSobreTimeout);
+            modalSobre.style.display = 'flex';
+        });
+        modalSobre.addEventListener('mouseleave', () => {
+            modalSobreTimeout = setTimeout(() => { modalSobre.style.display = 'none'; }, 300);
+        });
+    }
+
+    // =====================
     // Limpar Filtros da Sidebar
     // =====================
     // Seleciona o botão/área de limpar filtros
@@ -342,6 +329,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // 4. (Opcional) Adicione aqui lógica para atualizar o grid de produtos, se necessário
             // Exemplo: atualizarGridProdutos();
+        });
+    }
+
+    // =====================
+    // Menu Mobile (Hambúrguer e Modal)
+    // =====================
+    const menuMobileBtn = document.getElementById('menu-mobile-btn');
+    const menuMobileModal = document.getElementById('menu-mobile-modal');
+    const menuMobileClose = document.getElementById('menu-mobile-close');
+    const menuMobileBackdrop = document.getElementById('menu-mobile-backdrop');
+    // Abrir menu mobile
+    if (menuMobileBtn && menuMobileModal) {
+        menuMobileBtn.addEventListener('click', function() {
+            menuMobileModal.classList.add('active');
+        });
+    }
+    // Fechar menu mobile
+    function fecharMenuMobile() {
+        menuMobileModal.classList.remove('active');
+    }
+    if (menuMobileClose) menuMobileClose.addEventListener('click', fecharMenuMobile);
+    if (menuMobileBackdrop) menuMobileBackdrop.addEventListener('click', fecharMenuMobile);
+    // Fechar ao clicar em qualquer link
+    document.querySelectorAll('.menu-mobile-list a').forEach(link => {
+        link.addEventListener('click', fecharMenuMobile);
+    });
+    // Início: scroll para o topo
+    const menuMobileInicio = document.querySelector('.menu-mobile-inicio');
+    if (menuMobileInicio) {
+        menuMobileInicio.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    // Sobre: abre modal Sobre
+    const menuMobileSobre = document.querySelector('.menu-mobile-sobre');
+    if (menuMobileSobre) {
+        menuMobileSobre.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Simula hover/focus do link Sobre
+            const sobreLink = document.getElementById('sobre-link');
+            if (sobreLink) {
+                sobreLink.dispatchEvent(new Event('mouseenter'));
+            }
+        });
+    }
+    // Loja: abre modal Loja
+    const menuMobileLoja = document.querySelector('.menu-mobile-loja');
+    if (menuMobileLoja) {
+        menuMobileLoja.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lojaLink = document.getElementById('loja-link');
+            if (lojaLink) {
+                lojaLink.dispatchEvent(new Event('mouseenter'));
+            }
         });
     }
 });

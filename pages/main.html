@@ -12,13 +12,26 @@
     <script src="../assets/scripts/main.js"></script>
 <body>
     <header class="main-header" id="header">
-        <div class="header-logo">
-            <img src="../assets/imgs/logos/logo lumicenter azul principal.png" alt="Logo da Lumicenter">
+        <div class="header-logo" style="height: 100%; display: flex; align-items: center;">
+            <a href="https://lumicenter.com/" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/imgs/logos/logo lumicenter azul principal.png" alt="Logo da Lumicenter">
+            </a>
         </div>
         <div class="header-menu">
             <ul>
                 <li><a href="#image-slider-container">Início</a></li>
-                <li><a href="https://lumicenter.com/empresa" target="_blank" rel="noopener noreferrer">Sobre</a></li>
+                <li><a href="#" id="sobre-link">Sobre</a>
+                    <!-- Modal de opções do Sobre -->
+                    <div class="modal-sobre" id="modal-sobre" style="display:none;">
+                        <div class="modal-sobre-list" id="conteudo-sobre" style="display:none; grid-template-columns: 1fr 1fr; gap: 0px 0px; align-items: flex-start; min-width: 560px;">
+                            <ul style="list-style:none; padding:0; margin:0;">
+                                <li><a href="https://lumisoft.lumicenter.com/" target="_blank" rel="noopener noreferrer">Lumisoft</a></li>
+                                <li><a href="https://iluminacaopratica.lumicenter.com/" target="_blank" rel="noopener noreferrer">Ebook</a></li>
+                                <li><a href="https://lumicenter.com/empresa" target="_blank" rel="noopener noreferrer">Sobre nós</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
                 <li class="header-loja">
                     <a href="#" id="loja-link">Loja</a>
                     <!-- Modal de categorias por segmento -->
@@ -98,6 +111,10 @@
                     <a href="login.html">Cadastrar</a>
                 </div>
             </div>
+            <!-- Botão menu sanduíche (mobile/tablet) -->
+            <button class="menu-mobile-btn" id="menu-mobile-btn" aria-label="Abrir menu" style="margin-left: 8px; margin-right: 16px;">
+                <span class="menu-mobile-icon"></span>
+            </button>
         </div>
     </header>
     <div class="image-slider-container" id="image-slider-container">
@@ -108,12 +125,28 @@
             <div class="image-slide"><img src="../assets/imgs/image slider/luminárias.jpg" alt="Luminárias"></div>
             <div class="image-slide"><img src="../assets/imgs/image slider/lumisoft.jpg" alt="Lumisoft"></div>
             <div class="image-slide"><img src="../assets/imgs/image slider/persons.jpg" alt="Pessoas"></div>
+            <div class="image-slide"><img src="../assets/imgs/image slider/ebook.jpg" alt="Ebook"></div>
         </div>
         <!-- Setas do carrossel -->
         <button class="slider-arrow left" id="slider-arrow-left" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-arrow right" id="slider-arrow-right" aria-label="Próxima"><i class="fa-solid fa-chevron-right"></i></button>
         <!-- Bolinhas do carrossel -->
         <div class="slider-dots" id="slider-dots"></div>
+    </div>
+    <!-- Menu lateral/modal mobile -->
+    <div class="menu-mobile-modal" id="menu-mobile-modal">
+        <div class="menu-mobile-content">
+            <button class="menu-mobile-close" id="menu-mobile-close" aria-label="Fechar menu">&times;</button>
+            <ul class="menu-mobile-list">
+                <li><a href="#image-slider-container" class="menu-mobile-inicio">Início</a></li>
+                <li><a href="wishlist.html">Lista de Desejos</a></li>
+                <li><a href="#" class="menu-mobile-sobre">Sobre</a></li>
+                <li><a href="#" class="menu-mobile-loja">Loja</a></li>
+                <li><a href="https://lumicenter.com/novidades" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="https://lumicenter.com/contato" target="_blank" rel="noopener noreferrer">Contato</a></li>
+            </ul>
+        </div>
+        <div class="menu-mobile-backdrop" id="menu-mobile-backdrop"></div>
     </div>
     <div class="main-container">
         <div class="side-bar">
